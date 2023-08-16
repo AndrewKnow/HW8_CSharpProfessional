@@ -1,5 +1,4 @@
-﻿using ConsoleTables;
-
+﻿
 namespace HW8_CSharpProfessional
 {
     internal class Program

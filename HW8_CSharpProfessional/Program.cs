@@ -1,4 +1,6 @@
-﻿namespace HW8_CSharpProfessional
+﻿using ConsoleTables;
+
+namespace HW8_CSharpProfessional
 {
     internal class Program
     {
@@ -13,7 +15,11 @@
 
             int[][] listsArray = new int[][] { intArray1, intArray2, intArray3 };
 
+
             Console.WriteLine("Обычное сложение:");
+
+            var table = new ConsoleTable("Сумма", "Время");
+
             foreach (var arr in listsArray)
             {
                 var createArr = implamentations.CreateArray(arr.Length);
@@ -41,7 +47,6 @@
                 var (sum, time) = implamentations.LINQSummation(createArr);
                 Console.WriteLine($" Результат {sum} Время {time} мс");
             }
-
 
         }
     }

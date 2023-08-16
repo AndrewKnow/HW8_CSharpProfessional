@@ -72,15 +72,15 @@ namespace HW8_CSharpProfessional
 
             long sum = 0;
 
-            var splitArray = new List<int[]>();
-            var z = arr.Length / 10;
+            var splitArr = new List<int[]>();
+            var z = arr.Length / 5;
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 5; i++)
             {
-                splitArray.Add(arr.Skip(z * i).Take(z).ToArray());
+                splitArr.Add(arr.Skip(z * i).Take(z).ToArray());
             }
 
-            foreach (var tempArray in splitArray)
+            foreach (var tempArray in splitArr)
             {
                 var thread = new Thread(() => sum += Summation(tempArray));
                 thread.Start();
@@ -103,9 +103,8 @@ namespace HW8_CSharpProfessional
             var sw = new Stopwatch();
             sw.Start();
 
-            long sum;
-
-            sum = arr.AsParallel().Sum();
+            var newArr = arr.Select(i => (long)i).ToArray();
+            long sum = newArr.AsParallel().Sum();
 
             sw.Stop();
 

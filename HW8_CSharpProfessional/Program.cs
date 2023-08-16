@@ -38,7 +38,7 @@
             {
                 var createArr = implamentations.CreateArray(arr.Length);
 
-                var (sum, time) = implamentations.ThreadSummation(createArr);
+                var (sum, time) = implamentations.LINQSummation(createArr);
                 Console.WriteLine($" Результат {sum} Время {time} мс");
             }
 

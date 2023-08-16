@@ -11,11 +11,37 @@
             var intArray2 = new int[1_000_000];
             var intArray3 = new int[10_000_000];
 
+            int[][] listsArray = new int[][] { intArray1, intArray2, intArray3 };
 
             Console.WriteLine("Обычное сложение:");
-            Console.WriteLine($" {implamentations.AddingArrayNumbers(intArray1)}");
-            Console.WriteLine($" {implamentations.AddingArrayNumbers(intArray2)}");
-            Console.WriteLine($" {implamentations.AddingArrayNumbers(intArray3)}");
+            foreach (var arr in listsArray)
+            {
+                var createArr = implamentations.CreateArray(arr.Length);
+
+                var (sum, time) = implamentations.SimpleSummation(createArr);
+                Console.WriteLine($" Результат {sum} Время {time} мс");
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Параллельное  сложение:");
+            foreach (var arr in listsArray)
+            {
+                var createArr = implamentations.CreateArray(arr.Length);
+
+                var (sum, time) = implamentations.ThreadSummation(createArr);
+                Console.WriteLine($" Результат {sum} Время {time} мс");
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Параллельное  сложение с помощью LINQ:");
+            foreach (var arr in listsArray)
+            {
+                var createArr = implamentations.CreateArray(arr.Length);
+
+                var (sum, time) = implamentations.ThreadSummation(createArr);
+                Console.WriteLine($" Результат {sum} Время {time} мс");
+            }
+
 
         }
     }

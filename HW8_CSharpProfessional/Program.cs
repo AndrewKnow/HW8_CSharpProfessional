@@ -15,10 +15,7 @@ namespace HW8_CSharpProfessional
 
             int[][] listsArray = new int[][] { intArray1, intArray2, intArray3 };
 
-
             Console.WriteLine("Обычное сложение:");
-
-            var table = new ConsoleTable("Сумма", "Время");
 
             foreach (var arr in listsArray)
             {

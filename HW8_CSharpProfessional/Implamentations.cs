@@ -105,7 +105,7 @@ namespace HW8_CSharpProfessional
         /// </summary>
         /// <param name="arr"></param>
         /// <returns></returns>
-        public (long, long) LINQSummation(int[] arr)
+        public (long, long) LINQSummation(long[] arr)
         {
             var sw = new Stopwatch();
             sw.Start();

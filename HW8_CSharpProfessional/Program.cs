@@ -40,7 +40,9 @@ namespace HW8_CSharpProfessional
             {
                 var createArr = implamentations.CreateArray(arr.Length);
 
-                var (sum, time) = implamentations.LINQSummation(createArr);
+                var longs = createArr.Select(item => (long)item).ToArray();
+
+                var (sum, time) = implamentations.LINQSummation(longs);
                 Console.WriteLine($" Результат {sum} Время {time} мс");
             }
 

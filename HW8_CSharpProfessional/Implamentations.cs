@@ -110,7 +110,7 @@ namespace HW8_CSharpProfessional
             var sw = new Stopwatch();
             sw.Start();
 
-            var newArr = arr.Select(i => (long)i).ToArray();
+            var newArr = arr.Select(i => i).ToArray();
             long sum = newArr.AsParallel().Sum();
 
             sw.Stop();

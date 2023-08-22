@@ -75,6 +75,8 @@ namespace HW8_CSharpProfessional
             var splitArr = new List<int[]>();
             var z = arr.Length / 5;
 
+            var listThread = new List<Thread>();
+
             for (int i = 0; i < 5; i++)
             {
                 splitArr.Add(arr.Skip(z * i).Take(z).ToArray());
@@ -82,11 +84,16 @@ namespace HW8_CSharpProfessional
 
             foreach (var tempArray in splitArr)
             {
-                var thread = new Thread(() => sum += Summation(tempArray));
+                var thread = new Thread(() => {lock (splitArr) {sum += Summation(tempArray);}
+                });
+                listThread.Add(thread);
                 thread.Start();
-                thread.Join();
             }
 
+            foreach (Thread thread in listThread)
+            {
+                thread.Join();
+            }
 
             sw.Stop();
 
